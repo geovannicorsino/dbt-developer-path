@@ -1,8 +1,10 @@
 sources:
   - name: jaffle_shop
+    description: A clone of a Postgres database
     schema: jaffle_shop
     tables:
       - name: customers
+        description: Raw customers data
         columns:
           - name: id
             description: primary key
@@ -10,6 +12,7 @@ sources:
               - unique
               - not_null
       - name: orders
+        description: Raw orders data
         #config:
         #  freshness:
         #    warn_after:
