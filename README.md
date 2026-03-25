@@ -10,9 +10,9 @@ The goal is to document all progress, hands-on projects, and notes throughout th
 
 ### Milestone 1 — dbt Fundamentals
 
-| #   | Course           | Status |
-| --- | ---------------- | ------ |
-| 1   | dbt Fundamentals | 🔄     |
+| #   | Course           | Status | Certificate                                                                                            |
+| --- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| 1   | dbt Fundamentals | ✅     | [🔗 View credential](https://credentials.getdbt.com/23bd27af-631d-4592-8859-a55a248c7225#acc.LJ3k7UdE) |
 
 > Core dbt concepts: models, sources, tests, documentation, and deployment.
 
@@ -67,24 +67,9 @@ The goal is to document all progress, hands-on projects, and notes throughout th
 
 ```
 dbt-developer-path/
+├── assets/
+│   └── certificates/          # Certificates badges
 ├── dbt-fundamentals/          # Hands-on project — Jaffle Shop
-│   ├── models/
-│   │   ├── staging/           # Staging layer (views)
-│   │   │   ├── jaffle_shop/
-│   │   │   │   ├── stg_jaffle_shop__customers.sql
-│   │   │   │   └── stg_jaffle_shop__orders.sql
-│   │   │   └── stripe/
-│   │   │       └── stg_stripe__payments.sql
-│   │   └── marts/             # Marts layer (tables)
-│   │       ├── finance/
-│   │       │   └── fct_orders.sql
-│   │       └── marketing/
-│   │           └── dim_customers.sql
-│   ├── seeds/
-│   ├── macros/
-│   ├── tests/
-│   ├── snapshots/
-│   └── dbt_project.yml
 └── README.md
 ```
 
