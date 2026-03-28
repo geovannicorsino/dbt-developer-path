@@ -1,0 +1,13 @@
+version: 2
+
+macros:
+  - name: convert_cents_to_dollars
+    description: "Converts a monetary value from cents to dollars by dividing by 100."
+    arguments:
+      - name: amount_column
+        description: "The column or expression containing the amount in cents to be converted."
+  - name: format_currency
+    description: "Formats a numeric value as a currency string with a dollar sign."
+    arguments:
+      - name: amount
+        description: "The numeric value to be formatted as currency."

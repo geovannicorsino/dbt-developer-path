@@ -1,0 +1,31 @@
+version: 2
+
+seeds:
+  - name: orders
+    description: "Seed table containing order data including order details, amounts, dates, customer information, and order status."
+    columns:
+      - name: ORDER_ID
+        description: "Unique identifier for each order."
+      - name: ORDER_AMOUNT
+        description: "The total monetary amount of the order."
+      - name: ORDER_DATE
+        description: "The date and time when the order was placed."
+      - name: CUSTOMER_ID
+        description: "Unique identifier for the customer who placed the order."
+      - name: STATUS
+        description: "Current status of the order (e.g., completed, pending, shipped)."
+  - name: sales
+    description: "Seed table containing product sales data including sale details, quantities, amounts in cents, dates, and customer information."
+    columns:
+      - name: sale_id
+        description: "Unique identifier for each sale."
+      - name: product_id
+        description: "Identifier for the product being sold."
+      - name: quantity
+        description: "Quantity of the product sold in this sale."
+      - name: sale_amount_cents
+        description: "Total sale amount in cents."
+      - name: sale_date
+        description: "Date when the sale occurred."
+      - name: customer_id
+        description: "Identifier for the customer who made the purchase."
