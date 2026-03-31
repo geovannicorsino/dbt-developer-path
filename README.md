@@ -40,31 +40,34 @@ The goal of this repository is to document all progress, hands-on projects, and 
 <br>
 
 ### 🟢 Milestone 1 — dbt Fundamentals
+
 > Core dbt concepts: models, sources, tests, documentation, and deployment.
 
-| #   | Course           | Status |
+|  #  | Course           | Status |
 | :-: | ---------------- | :----: |
-| 1   | dbt Fundamentals |   ✅   |
+|  1  | dbt Fundamentals |   ✅   |
 
 ### 🟡 Milestone 2 — Jinja, Macros, and Packages
+
 > Jinja templating, custom macros, and community packages.
 
-| #   | Course                      | Status |
+|  #  | Course                      | Status |
 | :-: | --------------------------- | :----: |
-| 2   | Jinja, Macros, and Packages |   ✅   |
+|  2  | Jinja, Macros, and Packages |   ✅   |
 
 ### 🔵 Milestone 3 — Advanced dbt Techniques
+
 > Advanced techniques including incremental models, refactoring, dbt Mesh, advanced testing, and more.
 
-| #   | Course                         | Status |
+|  #  | Course                         | Status |
 | :-: | ------------------------------ | :----: |
-| 3   | Refactoring SQL for Modularity |   ⬜   |
-| 4   | Incremental Models             |   ⬜   |
-| 5   | Analyses and Seeds             |   ⬜   |
-| 6   | Exposures                      |   ⬜   |
-| 7   | Understanding State            |   ✅   |
-| 8   | dbt Retry                      |   ⬜   |
-| 9   | dbt Mesh Intro                 |   ✅   |
+|  3  | Refactoring SQL for Modularity |   ⬜   |
+|  4  | Incremental Models             |   ✅   |
+|  5  | Analyses and Seeds             |   ⬜   |
+|  6  | Exposures                      |   ⬜   |
+|  7  | Understanding State            |   ✅   |
+|  8  | dbt Retry                      |   ⬜   |
+|  9  | dbt Mesh Intro                 |   ✅   |
 | 10  | dbt Mesh                       |   ⬜   |
 | 11  | Advanced Testing               |   ⬜   |
 | 12  | Advanced Deployment            |   ⬜   |
@@ -73,17 +76,19 @@ The goal of this repository is to document all progress, hands-on projects, and 
 | 15  | Python Models                  |   ⬜   |
 
 ### 🟣 Milestone 4 — Exam Preparation
+
 > Preparation material and tips for the certification exam.
 
-| #   | Course                          | Status |
+|  #  | Course                          | Status |
 | :-: | ------------------------------- | :----: |
 | 16  | Pro Tips for dbt Certifications |   ⬜   |
 | 17  | dbt Developer Exam Study Guide  |   ⬜   |
 
 ### 🟠 Milestone 5 — Exam Registration
+
 > Official exam registration and completion.
 
-| #   | Course                                           | Status |
+|  #  | Course                                           | Status |
 | :-: | ------------------------------------------------ | :----: |
 | 18  | Register dbt Analytics Engineering Certification |   ⬜   |
 
@@ -93,9 +98,10 @@ The goal of this repository is to document all progress, hands-on projects, and 
 
 ```text
 📦 dbt-developer-path
- ┣ 📂 assets
- ┃ ┗ 📂 certificates          # Certificates badges
- ┣ 📂 dbt-fundamentals        # Hands-on project — Jaffle Shop
+ ┣ 📂 assets                  # Certificates and media
+ ┣ 📂 dbt-fundamentals        # Milestone 1: Jaffle Shop
+ ┣ 📂 jinja_macros_and_packages # Milestone 2: Jinja & Macros
+ ┣ 📂 incremental_models      # Milestone 3: Optimization strategies
  ┗ 📜 README.md
 ```
 
@@ -127,11 +133,11 @@ dbt test
 
 ## 📚 Useful Resources
 
-* 📖 [**dbt Documentation**](https://docs.getdbt.com/)
-* 🎓 [**dbt Learn — Learning Path**](https://learn.getdbt.com/learn/learning-path/dbt-certified-developer)
-* 💬 [**dbt Community (Slack)**](https://community.getdbt.com/)
-* 📝 [**dbt Discourse**](https://discourse.getdbt.com/)
-* 🧪 [**dbt Packages Hub**](https://hub.getdbt.com/)
+- 📖 [**dbt Documentation**](https://docs.getdbt.com/)
+- 🎓 [**dbt Learn — Learning Path**](https://learn.getdbt.com/learn/learning-path/dbt-certified-developer)
+- 💬 [**dbt Community (Slack)**](https://community.getdbt.com/)
+- 📝 [**dbt Discourse**](https://discourse.getdbt.com/)
+- 🧪 [**dbt Packages Hub**](https://hub.getdbt.com/)
 
 ---
 

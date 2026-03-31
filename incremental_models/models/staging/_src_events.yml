@@ -1,0 +1,69 @@
+sources:
+  - name: incremental_models
+    description: A clone of a Postgres database
+    schema: incremental_models
+    tables:
+      - name: events
+        description: Raw user events partitioned by ingest date.
+
+        columns:
+          - name: event_id
+            description: Unique identifier of the event.
+            data_type: STRING
+            tests:
+              - unique
+              - not_null
+
+          - name: event_type
+            description: Type of event (page_view, click, purchase, login, logout, signup, error).
+            data_type: STRING
+            tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    [
+                      "page_view",
+                      "click",
+                      "purchase",
+                      "login",
+                      "logout",
+                      "signup",
+                      "error",
+                    ]
+
+          - name: user_id
+            description: Identifier of the user who triggered the event.
+            data_type: STRING
+            tests:
+              - not_null
+
+          - name: session_id
+            description: Session in which the event occurred.
+            data_type: STRING
+
+          - name: platform
+            description: Platform where the event was captured (web, mobile, ios, android).
+            data_type: STRING
+            tests:
+              - accepted_values:
+                  arguments: ["web", "mobile", "ios", "android"]
+
+          - name: country
+            description: ISO 3166-1 alpha-2 country code of the user.
+            data_type: STRING
+
+          - name: revenue_usd
+            description: Revenue amount in USD. Populated only for purchase events, NULL otherwise.
+            data_type: NUMERIC
+
+          - name: event_ts
+            description: Timestamp of when the event occurred (UTC).
+            data_type: TIMESTAMP
+            tests:
+              - not_null
+
+          - name: ingest_date
+            description: Partition column — date when the event was ingested. Used as the BigQuery partition key.
+            data_type: DATE
+            tests:
+              - not_null

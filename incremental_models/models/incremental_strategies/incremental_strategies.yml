@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: incremental_merge
+    description: >
+      Incremental model using the `merge` strategy. 
+      This strategy performs an UPSERT (Update + Insert) based on a `unique_key`. 
+      It is ideal when the state of past rows can change (e.g., a status changing from 'Processing' to 'Approved').
+      Note: At the BigQuery processing level, this is the most expensive strategy because it compares rows line-by-line using keys before deciding to insert or update.
+    columns:
+      - name: event_id
+        description: "Unique identifier for the event. Used as the `unique_key` for upsert operations in the data warehouse."
+        tests:
+          - unique
+          - not_null
+      - name: ingest_date
+        description: "The date the event was initially consumed in the raw sublayer."
+
+  - name: insert_microbatch
+    description: >
+      Incremental model using the modern `microbatch` strategy (introduced in dbt 1.9).
+      Designed specifically for massive time-series processing (logs/events).
+      Its main advantage is splitting processing loads into small time fragments (batches, e.g., daily or hourly). 
+      It eliminates the need for manual `is_incremental` logic in SQL, as dbt takes control of filter generation by combining `batch_size` and the `event_time` config.
+    columns:
+      - name: ingest_date
+        description: "Referential event column (`event_time`) used to build daily partitions in BQ and determine processing batches."
+
+  - name: insert_overwrite
+    description: >
+      Incremental model using the `insert_overwrite` strategy coupled with BigQuery partitioning.
+      Instead of reconciling keys (like merge), it replaces an entire time slice (partition) at once. 
+      It is perfectly idempotent: running it multiple times for the same window yields the same result (old data is replaced by new data for that partition). 
+      Highly recommended for high-volume fact tables containing logs that are never updated (only appended or resent as delayed batches). 
+    columns:
+      - name: ingest_date
+        description: "Ingestion date that anchors strict table partitioning (`partition_by`) across re-runs."
