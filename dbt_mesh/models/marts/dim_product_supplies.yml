@@ -1,6 +1,7 @@
 models:
   - name: dim_product_supplies
     config:
+      materialized: table
       contract:
         enforced: true
     columns:

@@ -1,6 +1,7 @@
 models:
   - name: fct_order_items
     config:
+      materialized: table
       contract:
         enforced: true
     columns:
