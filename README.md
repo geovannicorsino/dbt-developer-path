@@ -99,7 +99,7 @@ The goal of this repository is to document all progress, hands-on projects, and 
 ```text
 📦 dbt-developer-path
  ┣ 📂 assets                  # Certificates and media
- ┣ 📂 dbt-fundamentals        # Milestone 1: Jaffle Shop
+ ┣ 📂 dbt_fundamentals        # Milestone 1: Jaffle Shop
  ┣ 📂 jinja_macros_and_packages # Milestone 2: Jinja & Macros
  ┣ 📂 incremental_models      # Milestone 3: Optimization strategies
  ┗ 📜 README.md
@@ -114,7 +114,7 @@ Follow these steps to explore the hands-on projects locally:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/geovannicorsino/dbt-developer-path.git
-cd dbt-developer-path/dbt-fundamentals
+cd dbt-developer-path/dbt_fundamentals
 
 # 2. Install dependencies
 pip install -r requirements.txt

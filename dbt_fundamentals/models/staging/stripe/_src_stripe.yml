@@ -1,0 +1,22 @@
+sources:
+  - name: stripe
+    schema: stripe
+    tables:
+      - name: payments
+        description: Raw payment records from Stripe
+        columns:
+          - name: id
+            description: the primary key for payments
+            data_tests:
+              - unique
+              - not_null
+          - name: orderid
+            description: foreign key to orders
+          - name: paymentmethod
+            description: method used for payment (e.g., credit_card, bank_transfer)
+          - name: status
+            description: payment status (e.g., success, failed, pending)
+          - name: amount
+            description: payment amount stored in cents
+          - name: created
+            description: timestamp when the payment was created

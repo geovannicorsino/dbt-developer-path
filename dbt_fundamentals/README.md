@@ -36,7 +36,7 @@ The following fundamental concepts are covered and practically applied in this m
 ## 📂 Project Structure
 
 ```text
-📦 dbt-fundamentals
+📦 dbt_fundamentals
  ┣ 📂 models
  ┃ ┣ 📂 staging
  ┃ ┃ ┣ 📂 jaffle_shop
