@@ -6,6 +6,8 @@ models:
       materialized: table
       contract:
         enforced: true
+      group: finance
+      access: public
     columns:
       - name: order_id
         data_type: string

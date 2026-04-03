@@ -1,0 +1,13 @@
+groups:
+  - name: finance
+    owner:
+      name: Product Owner Finance
+      email: finance@geovannicorsinolabs.com
+      slack: finance-data
+      github: finance-data-team
+  - name: product
+    owner:
+      name: Product Owner
+      email: product@geovannicorsinolabs.com
+      slack: product-data
+      github: product-data-team
