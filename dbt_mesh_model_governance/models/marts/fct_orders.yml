@@ -1,0 +1,55 @@
+models:
+  - name: fct_orders
+    description: "Fact table for orders, containing detailed information about each order, including customer and location details, order totals, and tax information."
+    latest_version: 1
+    config:
+      materialized: table
+      contract:
+        enforced: true
+      group: finance
+      access: public
+    columns:
+      - name: order_id
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: location_id
+        data_type: string
+      - name: customer_id
+        data_type: string
+      - name: order_total
+        data_type: int64
+      - name: tax_paid
+        data_type: float64
+      - name: ordered_at
+        data_type: timestamp
+      - name: customer_name
+        data_type: string
+      - name: location_name
+        data_type: string
+      - name: tax_rate
+        data_type: float64
+      - name: location_opened_at
+        data_type: timestamp
+      - name: ordered_month
+        data_type: int64
+      - name: ordered_day
+        data_type: int64
+      - name: ordered_year
+        data_type: int64
+    versions:
+      - v: 1
+        config:
+          alias: fct_orders
+        description: "Initial version of the fct_orders model, containing basic order information and related customer and location details."
+        defined_in: fct_orders_v1
+      - v: 2
+        description: "Updated version of the fct_orders model, adding the order_amount column and removing the redundant order_total column."
+        defined_in: fct_orders_v2
+        columns:
+          - name: order_amount ##v2 Adds in new column name and date type change
+            data_type: float64
+          - name: location_opened_at
+            data_type: date
+          - include: all #Includes all other fields
+            exclude: [order_total] #But removes the old name of order_total
