@@ -1,0 +1,98 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: "Product dimension with category flags and pricing."
+    config:
+      group: growth_products
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: sku
+        description: "Unique product identifier (Stock Keeping Unit)."
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: product_name
+        description: "Display name of the product."
+        data_type: string
+      - name: product_type
+        description: "Category of the product (e.g. jaffle, beverage)."
+        data_type: string
+      - name: product_price
+        description: "Price of the product, in cents."
+        data_type: int64
+      - name: product_description
+        description: "Short description of the product."
+        data_type: string
+      - name: is_food_item
+        description: "True if the product is a food item (jaffle)."
+        data_type: bool
+      - name: is_drink_item
+        description: "True if the product is a drink item (beverage)."
+        data_type: bool
+
+  - name: dim_product_supplies
+    description: "Product dimension enriched with aggregated supply costs (COGS) per SKU."
+    config:
+      group: growth_products
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: sku
+        description: "Unique product identifier."
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: product_name
+        description: "Display name of the product."
+        data_type: string
+      - name: product_type
+        description: "Category of the product."
+        data_type: string
+      - name: product_price
+        description: "Selling price of the product, in cents."
+        data_type: int64
+      - name: is_food_item
+        description: "True if the product is a food item."
+        data_type: bool
+      - name: is_drink_item
+        description: "True if the product is a drink item."
+        data_type: bool
+      - name: total_supply_cost
+        description: "Total cost of all supplies required to make this product, in cents."
+        data_type: int64
+      - name: gross_margin_cents
+        description: "Estimated gross margin (price minus supply cost), in cents."
+        data_type: int64
+
+  - name: fct_product_revenue
+    description: "Revenue fact table aggregated by product SKU."
+    config:
+      group: growth_products
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: sku
+        description: "Product SKU."
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: product_name
+        description: "Display name of the product."
+        data_type: string
+      - name: product_type
+        description: "Category of the product."
+        data_type: string
+      - name: total_units_sold
+        description: "Total number of units sold."
+        data_type: int64
+      - name: total_revenue
+        description: "Total revenue from this product across all orders, in cents."
+        data_type: int64
+      - name: avg_order_value
+        description: "Average order total for orders containing this product, in cents."
+        data_type: float64

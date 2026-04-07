@@ -1,0 +1,152 @@
+version: 2
+
+models:
+  - name: stg_ecommerce__customers
+    description: "Staged customer data with clean column names. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: customer_name
+        description: "Full name of the customer."
+        data_type: string
+
+  - name: stg_ecommerce__orders
+    description: "Staged orders with clean column names and typed timestamps. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: customer_id
+        description: "Foreign key to the customer who placed the order."
+        data_type: string
+      - name: store_id
+        description: "Foreign key to the store where the order was placed."
+        data_type: string
+      - name: subtotal
+        description: "Order subtotal before tax, in cents."
+        data_type: int64
+      - name: tax_paid
+        description: "Tax amount paid, in cents."
+        data_type: int64
+      - name: order_total
+        description: "Total order amount including tax, in cents."
+        data_type: int64
+      - name: ordered_at
+        description: "Timestamp when the order was placed."
+        data_type: timestamp
+
+  - name: stg_ecommerce__order_items
+    description: "Staged order line items linking each order to product SKUs. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: order_item_id
+        description: "Unique identifier for each order line item."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: order_id
+        description: "Foreign key to the parent order."
+        data_type: string
+      - name: sku
+        description: "Product SKU for this line item."
+        data_type: string
+
+  - name: stg_ecommerce__products
+    description: "Staged product catalog with clean column names. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: sku
+        description: "Unique product identifier (Stock Keeping Unit)."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: product_name
+        description: "Display name of the product."
+        data_type: string
+      - name: product_type
+        description: "Category of the product (e.g. jaffle, beverage)."
+        data_type: string
+      - name: product_price
+        description: "Price of the product, in cents."
+        data_type: int64
+      - name: product_description
+        description: "Short description of the product."
+        data_type: string
+
+  - name: stg_ecommerce__stores
+    description: "Staged store/location data with clean column names. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: store_id
+        description: "Unique identifier for each store."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: store_name
+        description: "Name of the store location."
+        data_type: string
+      - name: opened_at
+        description: "Timestamp when the store opened."
+        data_type: timestamp
+      - name: tax_rate
+        description: "Sales tax rate applied at this store location."
+        data_type: float64
+
+  - name: stg_ecommerce__supplies
+    description: "Staged supply chain data linking ingredients and materials to products. Public interface for downstream teams."
+    config:
+      group: data_engineering
+      contract:
+        enforced: true
+      access: public
+    columns:
+      - name: supply_id
+        description: "Identifier for the supply item."
+        data_type: string
+        constraints:
+          - type: not_null
+            warn_unsupported: false
+      - name: supply_name
+        description: "Name of the supply item."
+        data_type: string
+      - name: supply_cost
+        description: "Cost of one unit of this supply, in cents."
+        data_type: int64
+      - name: is_perishable
+        description: "Whether this supply item is perishable."
+        data_type: bool
+      - name: sku
+        description: "Product SKU that uses this supply."
+        data_type: string

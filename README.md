@@ -68,10 +68,10 @@ The goal of this repository is to document all progress, hands-on projects, and 
 |  7  | Understanding State            |   ✅   |
 |  8  | dbt Retry                      |   ⬜   |
 |  9  | dbt Mesh Intro                 |   ✅   |
-| 10  | dbt Mesh                       |   ⬜   |
+| 10  | dbt Mesh                       |   ✅   |
 | 11  | Advanced Testing               |   ⬜   |
 | 12  | Advanced Deployment            |   ⬜   |
-| 13  | dbt Clone                      |   ⬜   |
+| 13  | dbt Clone                      |   ✅   |
 | 14  | Grants                         |   ⬜   |
 | 15  | Python Models                  |   ⬜   |
 
@@ -90,7 +90,9 @@ The goal of this repository is to document all progress, hands-on projects, and 
 
 |  #  | Course                                           | Status |
 | :-: | ------------------------------------------------ | :----: |
-| 18  | Register dbt Analytics Engineering Certification |   ⬜   |
+| 18  | Register dbt Analytics Engineering Certification |   ⬌   |
+
+> ⚠️ **Note:** The certification exam will not be taken. dbt Labs only provides free vouchers to official partners, and my company does not have that status.
 
 ---
 

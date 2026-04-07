@@ -1,0 +1,9 @@
+version: 2
+
+groups:
+  - name: ecommerce
+    owner:
+      name: Ecommerce Analytics Team
+      email: ecommerce-analytics@company.com
+      slack: ecommerce-analytics
+      github: ecommerce-analytics-team

@@ -1,0 +1,9 @@
+version: 2
+
+groups:
+  - name: growth_products
+    owner:
+      name: Growth & New Products Team
+      email: growth-products@company.com
+      slack: growth-products-analytics
+      github: growth-products-team

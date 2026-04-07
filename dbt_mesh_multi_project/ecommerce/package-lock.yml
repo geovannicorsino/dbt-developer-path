@@ -1,0 +1,4 @@
+packages:
+  - local: ../data_engineering
+    name: data_engineering
+sha1_hash: b006a670c0f4d7ec1004792b7b3c41585a53ef95

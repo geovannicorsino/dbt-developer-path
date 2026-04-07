@@ -1,0 +1,19 @@
+name: 'growth_products'
+version: '1.0.0'
+profile: 'growth_products'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  growth_products:
+    marts:
+      +materialized: table
+      +contract:
+        enforced: true

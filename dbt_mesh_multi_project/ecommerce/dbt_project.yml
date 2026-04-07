@@ -1,0 +1,19 @@
+name: 'ecommerce'
+version: '1.0.0'
+profile: 'ecommerce'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ecommerce:
+    marts:
+      +materialized: table
+      +contract:
+        enforced: true

@@ -1,0 +1,9 @@
+version: 2
+
+groups:
+  - name: data_engineering
+    owner:
+      name: Data Engineering Team
+      email: data-engineering@company.com
+      slack: data-engineering
+      github: data-engineering-team

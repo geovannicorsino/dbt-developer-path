@@ -1,0 +1,4 @@
+# Used for local dbt Core development.
+# In dbt Cloud, cross-project references are resolved via dependencies.yml above.
+packages:
+  - local: ../data_engineering
